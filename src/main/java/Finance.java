@@ -42,11 +42,8 @@ public class Finance {
                 System.out.println("Finding your monthly payment ...");
                 MortgageCalculator.main(arguments);
                 return;
-            case "LaunchRocketToMoon":
-                System.out.println("Launching rocket to the moon...");
-                return;
             default:
-                System.out.println(COMMAND_NOT_FOUND);
+                System.out.println(command + ": command not found");
                 return;
         }
     }
