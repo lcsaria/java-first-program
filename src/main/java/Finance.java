@@ -1,3 +1,5 @@
+
+import java.util.Arrays;
 import java.util.Map;
 
 import com.h2.*;
@@ -7,14 +9,13 @@ public class Finance {
     public static final String BEST_LOAN_RATES = "bestLoanRates";
     public static final String SAVINGS_CALCULATOR = "savingsCalculator";
     public static final String MORTGAGE_CALCULATOR = "mortgageCalculator";
-    private static final String COMMAND_NOT_FOUND = ": command not found.";
 
     public static final Map<String, String> commandsToUsage = Map.of(
             BEST_LOAN_RATES, "usage: bestLoanRates",
             SAVINGS_CALCULATOR, "usage: savingsCalculator <credits separated by ','> <debits separated by ','>",
             MORTGAGE_CALCULATOR, "usage: mortgageCalculator <loanAmount> <termInYears> <annualRate>"
     );
-
+    
     private static boolean validateCommandArguments(String[] args) {
         switch (args[0]) {
             case BEST_LOAN_RATES:
@@ -35,25 +36,35 @@ public class Finance {
                 BestLoanRates.main(arguments);
                 return;
             case SAVINGS_CALCULATOR:
-                System.out.println("Finding your net savings ...");
                 SavingsCalculator.main(arguments);
                 return;
             case MORTGAGE_CALCULATOR:
-                System.out.println("Finding your monthly payment ...");
                 MortgageCalculator.main(arguments);
                 return;
             default:
-                System.out.println(command + ": command not found");
                 return;
         }
     }
 
     public static void main(String[] args) {
-        if (validateCommandArguments(args)) {
-            executeCommand(args[0], args);
-        } else {
-            System.out.println(commandsToUsage.get(args[0]));
+        if (args.length == 0) {
+            System.out.println("Please enter a command");
+            return;
         }
+        
+        String command = args[0];
+        if (!commandsToUsage.containsKey(command)) {
+            System.out.println(command + ": command not found");
+            return;
+        }
+        
+        boolean isValidCommand = validateCommandArguments(args);
+        if (!isValidCommand) {
+            System.out.println(commandsToUsage.get(command));
+            return;
+        }
+        
+        String[] arguments = Arrays.copyOfRange(args, 1, args.length);
+        executeCommand(command, arguments);
     }
 }
-
