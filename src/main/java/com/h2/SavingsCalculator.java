@@ -23,7 +23,7 @@ public class SavingsCalculator {
     private float sumOfDebits() {
         float sum = 0.0f;
         for (float debit : debits) {
-            sum += debit;
+            sum -= debit;
         }
         return sum;
     }
@@ -37,7 +37,7 @@ public class SavingsCalculator {
 
 
     public float calculate() {
-        float netSavings = sumOfCredits() - sumOfDebits();
+        float netSavings = sumOfCredits() + sumOfDebits();
         int remainingDays = remainingDaysInMonth(LocalDate.now());
         float averageDailySavings = netSavings / remainingDays;
         return averageDailySavings * 30;
