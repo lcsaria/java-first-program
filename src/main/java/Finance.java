@@ -7,6 +7,7 @@ public class Finance {
     public static final String BEST_LOAN_RATES = "bestLoanRates";
     public static final String SAVINGS_CALCULATOR = "savingsCalculator";
     public static final String MORTGAGE_CALCULATOR = "mortgageCalculator";
+    public static final String LAUNCH_ROCKET_TO_MOON= "launchRocketToMoon";
 
     public static final Map<String, String> commandsToUsage = Map.of(
             BEST_LOAN_RATES, "usage: bestLoanRates",
@@ -41,7 +42,12 @@ public class Finance {
                 System.out.println("Finding your monthly payment ...");
                 MortgageCalculator.main(arguments);
                 return;
+            case LAUNCH_ROCKET_TO_MOON:
+                System.out.println("Launching rocket to moon...");
+                // Implement code to launch rocket to moon here
+                return;
             default:
+                System.out.println(command + ": command not found");
                 return;
         }
     }
