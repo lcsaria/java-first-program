@@ -21,6 +21,7 @@ public class Utilities {
         }
         return out;
     }
+    
 
     public static float getFloatValue(String in) {
         float out = Float.MIN_VALUE;
