@@ -1,5 +1,6 @@
 package com.h2;
 
+import com.h2.Utilities;
 
 public class MortgageCalculator {
 
@@ -38,19 +39,17 @@ public class MortgageCalculator {
     }
 
     public static void main(String[] args) {
-        long loanAmount = Long.parseLong(args[0]);
-    int termInYears = Integer.parseInt(args[1]);
-    float annualRate = Float.parseFloat(args[2]);
+        long loanAmount = Utilities.getLongValue(args[0]);
+        int termInYears = Utilities.getIntValue(args[1]);
+        float annualRate = Utilities.getFloatValue(args[2]);
 
-    // Create new MortgageCalculator instance
-    MortgageCalculator calculator = new MortgageCalculator(loanAmount, termInYears, annualRate);
+        // Create new MortgageCalculator instance
+        MortgageCalculator calculator = new MortgageCalculator(loanAmount, termInYears, annualRate);
 
-    // Calculate monthly payment
-    calculator.calculateMonthlyPayment();
+        // Calculate monthly payment
+        calculator.calculateMonthlyPayment();
 
-    // Print monthly payment
-    System.out.println(calculator.toString());
-
+        // Print monthly payment
+        System.out.println(calculator.toString());
     }
 }
-
