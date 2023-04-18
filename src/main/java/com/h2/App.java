@@ -22,6 +22,6 @@ public class App
             sum += numbers[count];
         }
 
-        reutrn sum;
+        return sum;
     }
 }
