@@ -44,7 +44,7 @@ public class Finance {
                 MortgageCalculator.main(arguments);
                 return;
             default:
-                System.out.println(command + ": command not found");
+                System.out.println(command + ": command not found" + "\n");
                 return;
         }
     }
