@@ -37,7 +37,7 @@ public class SavingsCalculator {
 
 
     public float calculate() {
-        float netSavings = sumOfCredits() + sumOfDebits();
+        float netSavings = sumOfCredits() - sumOfDebits();
         int remainingDays = remainingDaysInMonth(LocalDate.now());
         float averageDailySavings = netSavings / remainingDays;
         return (float) averageDailySavings * remainingDays;
