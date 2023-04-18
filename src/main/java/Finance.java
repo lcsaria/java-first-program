@@ -41,6 +41,9 @@ public class Finance {
                 System.out.println("Finding your monthly payment ...");
                 MortgageCalculator.main(arguments);
                 return;
+            case "LaunchRocketToMoon":
+                System.out.println("Error: LaunchRocketToMoon command not recognized.");
+                return;
             default:
                 System.out.println(command + ": command not found");
                 return;
