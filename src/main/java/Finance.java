@@ -7,6 +7,7 @@ public class Finance {
     public static final String BEST_LOAN_RATES = "bestLoanRates";
     public static final String SAVINGS_CALCULATOR = "savingsCalculator";
     public static final String MORTGAGE_CALCULATOR = "mortgageCalculator";
+    private static final String COMMAND_NOT_FOUND = ": command not found.";
 
     public static final Map<String, String> commandsToUsage = Map.of(
             BEST_LOAN_RATES, "usage: bestLoanRates",
@@ -41,12 +42,8 @@ public class Finance {
                 System.out.println("Finding your monthly payment ...");
                 MortgageCalculator.main(arguments);
                 return;
-            case "LaunchRocketToMoon":
-                System.out.println("Error: LaunchRocketToMoon command not recognized.");
-                return;
             default:
-                System.out.println(command + ": command not found");
-                return;
+                System.out.println(command + COMMAND_NOT_FOUND);
         }
     }
 
