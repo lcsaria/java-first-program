@@ -15,7 +15,7 @@ public class Finance {
             SAVINGS_CALCULATOR, "usage: savingsCalculator <credits separated by ','> <debits separated by ','>",
             MORTGAGE_CALCULATOR, "usage: mortgageCalculator <loanAmount> <termInYears> <annualRate>"
     );
-    
+
     private static boolean validateCommandArguments(String[] args) {
         switch (args[0]) {
             case BEST_LOAN_RATES:
@@ -36,12 +36,15 @@ public class Finance {
                 BestLoanRates.main(arguments);
                 return;
             case SAVINGS_CALCULATOR:
+                System.out.println("Finding your net savings ...");
                 SavingsCalculator.main(arguments);
                 return;
             case MORTGAGE_CALCULATOR:
+                System.out.println("Finding your monthly payment ...");
                 MortgageCalculator.main(arguments);
                 return;
             default:
+                System.out.println(command + ": command not found");
                 return;
         }
     }
